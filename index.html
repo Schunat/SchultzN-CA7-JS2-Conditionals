@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>"Bear, Ninja, Hunter Game"</title>
+</head>
+<body>
+  <p id="demo">Replace this content with the calculated sum</p>
+  <p id="computer">Replace this content with the calculated sum</p>
+  <p id="outcome"></p>
+<script>
+  let uname = prompt('Welcome to Bear Hunter Ninja! Please enter your name to get started: ');
+  let amessage = `Hi: ${uname} Let's Play!'`;
+  alert(amessage);
+      let player = prompt('Who are you: Bear, Ninja, or Hunter? ');
+      //console.log(amessage + ' this is an example of a hardcoded text string concatenated after a variable.'); 
+      document.getElementById('demo').innerHTML = `${uname}, you picked ${player} !`
+      let computer = "Bear"
+      document.getElementById('computer').innerHTML = `The computer picked ${computer}!`
+      //console.log(`${variable}, Another text string ` + anotherVariable + '');
+      let combination = -1 
+      if (player.toLowerCase() == "Bear".toLowerCase()){
+            if (computer.toLowerCase()  == "Bear".toLowerCase()){
+                combination = 1 
+            } else {
+                if (computer.toLowerCase() == "Ninja".toLowerCase()) {
+                    combination = 4
+                } else {
+                    combination = 8 // Hunter
+                }
+            }
+      } else {
+          if (player.toLowerCase() == "Ninja".toLowerCase()){
+             if (computer.toLowerCase()  == "Bear".toLowerCase()){
+                combination = 9
+            } else {
+                if (computer.toLowerCase() == "Ninja".toLowerCase()) {
+                    combination = 2
+                } else {
+                    combination = 5 // Hunter
+                }
+            }
+          } else { // player chose Hunter
+            if (computer.toLowerCase()  == "Bear".toLowerCase()){
+                combination = 6 
+            } else {
+                if (computer.toLowerCase() == "Ninja".toLowerCase()) {
+                    combination = 7
+                } else {
+                    combination = 3 // Hunter
+                }
+            }
+          }
+      }
+let winner = ""
+switch(combination) {
+  case 1:
+  case 2:
+  case 3:
+  winner = "Tie!!";
+       break;
+  case 4: 
+  case 5: 
+  case 6: 
+  winner = "You win!!";
+       break;
+  case 7:
+  case 8: 
+  case 9: 
+  winner = "Computer wins!!";
+       break;
+       default: winner = "error"
+  }
+     document.getElementById('outcome').innerHTML = winner;
+</script>
+ 
+
+    <script>
+    //document.getElementById("demo").innerHTML = 3 + 8;
+    //alert(8 + 3);
+    </script>
+
+</body>
+</html>
